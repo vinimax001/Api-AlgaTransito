@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  algatransito-db:
+    image: mysql:8.0
+    container_name: algatransito-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: algatransito
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes" # Permite o acesso root sem senha
+    ports:
+      - "3307:3306" # Mapeia a porta 3307 do seu PC para a 3306 do Docker
+    volumes:
+      - algatransito_data:/var/lib/mysql
+
+volumes:
+  algatransito_data:
